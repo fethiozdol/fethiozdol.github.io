@@ -17,6 +17,10 @@ li,
 span,
 strong {
   color: var(--global-text-color);
+  .keyword {
+    color: var(--global-keyword-fg-color);
+    background: var(--global-keyword-bg-color);
+  }
 }
 
 hr {
@@ -509,8 +513,8 @@ footer.fixed-bottom {
 
 footer.sticky-bottom {
   border-top: 1px solid var(--global-divider-color);
-  padding-top: 40px;
-  padding-bottom: 40px;
+  padding-top: 20px;
+  padding-bottom: 20px;
   font-size: 0.9rem;
 
   .container {
@@ -1495,4 +1499,26 @@ figure.cover {
 
 mjx-container[jax="CHTML"][display="true"] {
   overflow-x: auto;
+}
+.cc-message-custom {
+  color: #000 !important;
+  display: block;
+  -webkit-box-flex: 1;
+  -ms-flex: 1 1 auto;
+  flex: 1 1 auto;
+  max-width: 100%;
+  margin-right: 1em;
+
+  a {
+    color: #0076df !important;
+
+    &:hover {
+      color: #fff !important;
+      text-decoration: none;
+    }
+  }
+}
+
+.cc-message-custom-dark {
+  color: #000 !important;
 }
