@@ -86,6 +86,16 @@ let applyTheme = () => {
       background: getComputedStyle(document.documentElement).getPropertyValue("--global-bg-color") + "ee", // + 'ee' for trasparency.
     });
   }
+
+  // Add class to tables.
+  let ccMessageCustom = document.getElementsByClassName("cc-message-custom");
+  for (let i = 0; i < ccMessageCustom.length; i++) {
+    if (theme == "dark") {
+      ccMessageCustom[i].classList.add("cc-message-custom-dark");
+    } else {
+      ccMessageCustom[i].classList.remove("cc-message-custom-dark");
+    }
+  }
 };
 
 let setHighlight = (theme) => {
