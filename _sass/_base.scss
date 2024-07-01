@@ -17,6 +17,10 @@ li,
 span,
 strong {
   color: var(--global-text-color);
+  .keyword {
+    color: var(--global-keyword-fg-color);
+    background: var(--global-keyword-bg-color);
+  }
 }
 
 hr {

@@ -148,6 +148,15 @@
               window.open("mailto:{{ site.email | encode_email }}", "_blank");
             },
           },
+        {%- else if site.email_url -%}
+          {
+            id: 'socials-email',
+            title: 'Send email',
+            section: 'Socials',
+            handler: () => {
+              window.open("{{ site.email_url }}", "_blank");
+            },
+          },
         {%- endif -%}
         {%- if site.telegram_username -%}
           {

@@ -18,14 +18,16 @@
             {% endfor %}
             <td colspan="{{ i }}" class="list-group-category">{{ content.name }}</td>
           </tr>
-          {% for item in content.keywords %}
-            <tr>
-              <td></td>
-              <td class="list-group-name">
-                <b>{{ item }}</b>
-              </td>
-            </tr>
-          {% endfor %}
+          <tr>
+            <td></td>
+            <td class="list-group-name">
+              <p>
+                {% for item in content.keywords %}
+                  <span class="keyword">{{ item }}</span>&nbsp;
+                {% endfor %}
+              </p>
+            </td>
+          </tr>
         </tbody>
       </table>
     </div>
