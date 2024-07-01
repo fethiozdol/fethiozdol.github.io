@@ -1,4 +1,4 @@
 User-agent: *
 Disallow:
 
-Sitemap: https://fethiozdol.github.io/sitemap.xml
+Sitemap: https://thisismypattern.com/sitemap.xml
