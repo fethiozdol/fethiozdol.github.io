@@ -53,7 +53,7 @@
       "name": "Accenture",
       "location": "London, United Kingdom",
       "position": "Tech Arch Delivery Associate Manager",
-      "url": "https://www.accenture.com/gb-en",
+      "url": "https://www.accenture.com",
       "startDate": "2019-07-01",
       "endDate": "2022-06-01",
       "summary": "AWS Solutions Architect and Cloud Engineer in Accenture AWS Business Group (AABG) UK and Ireland.",
@@ -67,7 +67,7 @@
       "name": "Accenture",
       "location": "London, United Kingdom",
       "position": "Advanced Application Engineering Specialist",
-      "url": "https://www.accenture.com/gb-en",
+      "url": "https://www.accenture.com",
       "startDate": "2015-09-01",
       "endDate": "2019-06-01",
       "summary": "Team Lead in DevOps UK and Ireland group.",
@@ -139,22 +139,7 @@
       "url": "https://www.xecuta.co.uk",
       "keywords": [
         "Amazon Textract",
-        "Google Cloud DocumentAI",
-        "Amazon CloudFront",
-        "Amazon API Gateway",
-        "Lambda",
-        "TypeScript",
-        "Node.JS",
-        "Python",
-        "Amazon DynamoDB",
-        "Amazon SQS",
-        "Amazon EventBridge",
-        "Amazon Cognito",
-        "Amazon CloudWatch",
-        "Terraform",
-        "Azure DevOps",
-        "SonarCloud",
-        "checkov.io"
+        "Google Cloud DocumentAI"
       ],
       "startDate": "2024-02-01",
       "endDate": ""
@@ -162,7 +147,7 @@
     {
       "name": "Public Health | Accenture",
       "description": "As Platform Engineering Lead, managed a cloud engineering team of 5 and coordinated 10s of releases and provided 24/7 BAU support for supplying COVID-19 tests to care homes.",
-      "url": "https://www.accenture.com/gb-en",
+      "url": "https://www.accenture.com",
       "keywords": [
         "Amazon EC2",
         "AWS EKS",
@@ -189,7 +174,7 @@
     {
       "name": "Global retail banking and financial services company | Accenture",
       "description": "As DevOps Lead, Designed software delivery lifecycle processes, infrastructure-as-code, and CI/CD pipelines for one-click delivery of a multi-region application architecture to migrate their contact centre to AWS.",
-      "url": "https://www.accenture.com/gb-en",
+      "url": "https://www.accenture.com",
       "keywords": [
         "Amazon Connect",
         "Amazon Lex",
@@ -209,7 +194,7 @@
     {
       "name": "UK Top-5 retail group | Accenture",
       "description": "As Solutions Architect & DevOps Lead, cloud migration of 5 applications from on-premises data centre to AWS.",
-      "url": "https://www.accenture.com/gb-en",
+      "url": "https://www.accenture.com",
       "keywords": ["Amazon EC2", "Amazon RDS for PostgreSQL", "Cloud Endure", "GitHub", "Jenkins", "AWS CloudFormation", "AWS EC2 Image Builder"],
       "startDate": "2021-06-01",
       "endDate": "2021-10-01"
@@ -217,7 +202,7 @@
     {
       "name": "Public Health | Accenture",
       "description": "As Solutions Architect & DevOps Lead, helped to save lives with a new COVID-19 rapid test finder map solution for the public. The solution has a state-of-art cloud native architecture with CI-CD pipelines fully implemented in AWS. First release in just 8 days and went live at a national scale in just 3 weeks.",
-      "url": "https://www.accenture.com/gb-en",
+      "url": "https://www.accenture.com",
       "keywords": [
         "Amazon CloudFront",
         "Amazon API Gateway",
@@ -240,7 +225,7 @@
     {
       "name": "Internal shared services | Accenture",
       "description": "As Lead Technical Architect, increased developer productivity by 50%, reduced time to market by 30% and reduced operational costs by 50%. Rearchitected the cloud architecture, upgraded the runtime environment from Docker Swarm to AWS EKS. 10s of containerised Java microservices, 600+ pods across 3 clusters. The solution served 100+ clients in many industries at 99.999% availability with all infrastructure and licensing costs at only $3k per month. Led the development team of 12 across 3 geographies, oversaw and guided their transformation into a multidisciplinary Agile team.",
-      "url": "https://www.accenture.com/gb-en",
+      "url": "https://www.accenture.com",
       "keywords": [
         "Amazon EC2",
         "AWS EKS",
@@ -271,7 +256,7 @@
     {
       "name": "Large multinational investment company | Accenture",
       "description": "As DevOps Team Lead, reduced infrastructure costs by 40% and cut operational costs by 50% with a reusable and cloud agnostic solution for Micro Focus tools, which makes it possible to provision all environments and CD pipelines in less than a day.",
-      "url": "https://www.accenture.com/gb-en",
+      "url": "https://www.accenture.com",
       "keywords": ["Micro Focus Enterprise Server on Amazon EC2", "IBM DB2 on Amazon EC2", "Ansible", "Jenkins", "SonarQube", "ElasticSearch"],
       "startDate": "2018-01-01",
       "endDate": "2020-11-01"
