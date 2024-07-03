@@ -137,10 +137,7 @@
       "name": "Document Analysis Service | Xecuta",
       "description": "API-Driven B2B SaaS to extract text information from documents and images with pay-per-use pricing model at 1 page granularity",
       "url": "https://www.xecuta.co.uk",
-      "keywords": [
-        "Amazon Textract",
-        "Google Cloud DocumentAI"
-      ],
+      "keywords": ["Amazon Textract", "Google Cloud DocumentAI"],
       "startDate": "2024-02-01",
       "endDate": ""
     },

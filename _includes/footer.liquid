@@ -12,6 +12,9 @@
         Last updated: {{ 'now' | date: '%B %d, %Y' }}.
       {% endif %}
     </div>
+    {% if site.enable_osano %}
+      <div id="osano-cookieconsent"></div>
+    {% endif %}
   </footer>
 {% else %}
   <footer class="sticky-bottom mt-5" role="contentinfo">
@@ -31,5 +34,8 @@
         Last updated: {{ 'now' | date: '%B %d, %Y' }}.
       {% endif %}
     </div>
+    {% if site.enable_osano %}
+      <div id="osano-cookieconsent"></div>
+    {% endif %}
   </footer>
 {% endif %}

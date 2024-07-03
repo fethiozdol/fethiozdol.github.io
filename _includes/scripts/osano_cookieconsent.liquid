@@ -1,0 +1,82 @@
+{% if site.enable_osano %}
+  <!-- Osano Cookie Consent -->
+  <script src="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.js"></script>
+  <script>
+    function consentAnalyticsStorage() {
+      gtag('consent', 'update', {
+        analytics_storage: 'granted',
+      });
+    }
+    function denyAnalyticsStorage() {
+      gtag('consent', 'update', {
+        analytics_storage: 'denied',
+      });
+    }
+    window.cookieconsent.initialise({
+      container: document.getElementById('osano-cookieconsent'),
+      palette: {
+        popup: {
+          background: '#e7c000',
+          text: '#000',
+        },
+        button: {
+          background: '#009f06',
+        },
+        highlight: {
+          background: '#b71c1c',
+        },
+      },
+      content: {
+        allow: 'Allow All',
+        deny: 'Deny',
+        link: 'Privacy Policy',
+        href: '/terms/',
+        message: 'This website uses necessary and statistics cookies only. Please visit Privacy Policy page for more details.',
+        policy: 'Privacy Policy',
+      },
+      elements: {
+        messagelink:
+          '<span id="cookieconsent:desc" class="cc-message-custom">\{\{message\}\} <strong><a aria-label="learn more about cookies" tabindex="0" class="cc-link" href="\{\{href\}\}" target="_self">\{\{link\}\}</a></strong></span>',
+      },
+      type: 'opt-in',
+      revokable: true,
+      animateRevokable: false,
+      onInitialise: function (status) {
+        var type = this.options.type;
+        var didConsent = this.hasConsented();
+        if (type == 'opt-in' && didConsent) {
+          // enable cookies
+          consentAnalyticsStorage();
+        }
+        if (type == 'opt-out' && !didConsent) {
+          denyAnalyticsStorage();
+        }
+      },
+      onStatusChange: function (status, chosenBefore) {
+        var type = this.options.type;
+        var didConsent = this.hasConsented();
+        if (type == 'opt-in' && didConsent) {
+          // enable cookies
+          consentAnalyticsStorage();
+        }
+        if (type == 'opt-out' && !didConsent) {
+          denyAnalyticsStorage();
+        }
+      },
+      onRevokeChoice: function () {
+        var type = this.options.type;
+        if (type == 'opt-in') {
+          denyAnalyticsStorage();
+        }
+        if (type == 'opt-out') {
+          consentAnalyticsStorage();
+        }
+      },
+      law: {
+        regionalLaw: false,
+      },
+      location: true,
+    });
+  </script>
+  <!-- Osano Cookie Consent -->
+{% endif %}
