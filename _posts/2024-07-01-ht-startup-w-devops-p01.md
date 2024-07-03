@@ -1,6 +1,6 @@
 ---
 layout: post
-title: How-to Startup with DevOps from Day 0 – Part 1
+title: Kickstarting Your Startup with DevOps from Day Zero – Part 1
 date: 2024-07-01 00:00:00
 description: |
   This blog series aim to stop you delaying DevOps for your new startup.
@@ -19,79 +19,50 @@ giscus_comments: true
 related_posts: false
 ---
 
-# Foreword
+Edit: Thanks to the initial feedback I've got for my very first blog post, I modified this blog post at 04/07/2024 01:15 pm BST to clarify some missing points.
 
-Perhaps it's the banking industry in which I started my IT career, but I've been obsessed with high speed and high quality in software delivery ever since I took up platform engineering activities.
+## Introduction
 
-We build multiple SaaS for businesses at [Xecuta](https://www.xecuta.co.uk). We have only few people writing code, like at any startup, but it was not OK for us to leave software delivery disorganized. It may be our early days, but our architecture principles have already given us the confidence in managing AWS resources effectively.
+Starting my IT career in banking, I became passionate about fast, high-quality software delivery.
 
-In the first part of this series, I'll talk about our architecture principles and our design thinking which led us to organize our AWS environments and choose tools and services.
+At [Xecuta](https://www.xecuta.co.uk), where we build multiple SaaS products, we embraced organized software delivery early, focusing on robust architecture principles to manage AWS resources effectively.
+
+In this series' first part, I’ll discuss our architecture principles and design thinking that guided us in organizing our AWS environments and choosing tools and services.
 
 ## Xecuta's Architecture Principles
 
-Here's our 10 architecture principles that we agreed before we wrote first line of code.
+Before writing any code, we established these ten principles:
 
-1. Build cloud-native and serverless architectures, because we want maximum agility and minimum OpEx from day 0 with a near-linear trajectory for OpEx:Revenue ratio at short-to-medium long term
-2. Build services powered by Amazon Web Services (AWS), because they provide the best public cloud services around cloud-native and serverless architectures
-3. Organize our AWS environment using AWS Organizations
-   - We adopted AWS recommended [Basic Organization with infrastructure services](https://docs.aws.amazon.com/whitepapers/latest/organizing-your-aws-environment/basic-organization.html#basic-organization-with-infrastructure-services) pattern
-4. Use infrastructure-as-code for not only anything-on-cloud, but also to provision and manage
-   - AWS accounts
-   - Git repositories
-   - CI/CD pipelines
-5. Security from day 0
-   - Use SSO to access anything
-   - Use free or low-cost security services where possible
-6. Use Open Source Software from day 0
-7. KISS (Keept It Simple, Stupid)
-8. Adopt [The Twelve-Factor App](https://12factor.net/) methodology
-9. Continuous Delivery from day 0
-   - Use Static Code Analysis from day 0
-   - Adopt [trunk-based development](https://trunkbaseddevelopment.com/) with branch-to-release strategy
-   - Multi git-repo strategy with isolated and independent CI/CD pipelines
-   - Re-build and re-deploy untouched code every 3 months
-10. Build once deploy many with immutable build artefacts
-    - Always use conventional commits
-    - Use automation for semantic versioning and generating CHANGELOG
-    - Use package managers like npm or pip to manage code dependencies
+1. **Cloud-native and Serverless Architectures:** To achieve agility and minimize operational expenses.
+2. **AWS as the Backbone:** Leveraging the best public cloud services for our needs.
+3. **Organized AWS Environment:** Using AWS Organizations and following AWS’s recommended patterns<sup>1</sup>.
+4. **Infrastructure-as-Code (IaC):** Managing not just cloud infrastructure but also AWS accounts, Git repositories, and CI/CD pipelines.
+5. **Security from Day Zero:** Utilizing SSO and cost-effective security services.
+6. **Open Source Software:** Commitment from the beginning.
+7. **Keep It Simple, Stupid (KISS):** Simplicity in design and execution.
+8. **[Twelve-Factor App Methodology](https://12factor.net/):** Ensuring best practices in app development.
+9. **Continuous Delivery:** Emphasizing static code analysis, trunk-based development, and regular code re-deployments.
+10. **Build Once, Deploy Many**: Consistent builds to produce immutable build artefacts using automation for semantic versioning and changelogs.
 
-> Re: principle #3: You may want to look at [Basic organization with CI/CD as a separate function](https://docs.aws.amazon.com/whitepapers/latest/organizing-your-aws-environment/basic-organization.html#basic-organization-with-cicd-as-a-separate-function) as well, but we decided to make Infrastructure OU enclose Deployments OU for simplicity.
+<sup>1</sup> We adopted AWS recommended [Basic Organization with infrastructure services](https://docs.aws.amazon.com/whitepapers/latest/organizing-your-aws-environment/basic-organization.html#basic-organization-with-infrastructure-services) pattern. You may also want to look at [Basic organization with CI/CD as a separate function](https://docs.aws.amazon.com/whitepapers/latest/organizing-your-aws-environment/basic-organization.html#basic-organization-with-cicd-as-a-separate-function). We decided Infrastructure OU can enclose Deployments OU for simplicity.
 
-## How it's going so far
+## Current Status
 
-At the time of writing, Xecuta has:
+As of now, Xecuta has:
 
 - 15 AWS Accounts
-- 30+ Git repositories, which also means
-  - 30+ Build jobs
-  - 30+ CI/CD pipelines
-  - 30+ On-Demand Deploy pipelines
-- 2 separate multi-tenant SaaS offerings
-  - 3 environments for each
-  - Multiple SaaS customers for each
-- Code Quality from day 0
-  - Static Code Analysis with at least 80% Code Coverage, we pay €11/month
-  - OSS Vulnerabilities and OWASP 10 security scanning
-  - Policy-as-code for infrastructure-as-code
-- 7,000+ lines of all code
+- 30+ Git repositories, CI/CD pipelines and on-demand deploy pipelines
+- 2 multi-tenant SaaS offerings with multiple customers and environments
+- High code quality with 80% code coverage, OSS vulnerabilities scanning and policy-as-code for IaC
+- A lean team of one full-time and one-part time developer
 
-> We are just 1 full-time and 1 part-time developers. \
-> AWS bill for **non-workload OUs** last month was only **$19.90**.
+> AWS bill for **non-workload OUs** last month was only **$19.90**
 
 ---
 
-## Plan from Day 0
+## Day Zero Plan
 
-First, let's talk about how we organize our AWS accounts and resources.
-
-Assume we have a single AWS account, which becomes our AWS Organizations management account, and we configure our IAM Identity Center to enable SSO.
-
-With respect to our principles #3 and #4, we want all organization OUs and member accounts to be managed by infrastructure-as-code.
-
-We have 2 single infrastructure-as-code Git repositories for this purpose:
-
-- AWS Accounts Management
-- Git repositories Management
+We began by organizing our AWS accounts and resources, with a single AWS account as the management account and using IAM Identity Center for SSO. We manage organization OUs and member accounts with IaC, using two repositories for AWS accounts and Git repositories management.
 
 Our system administrators should be able to apply infrastructure-as-code changes from their local workstations, which will be authorized by temporary credentials issued by SSO (IAM Identity Center).
 
@@ -117,13 +88,13 @@ flowchart TD
   classDef mgmt fill:#aa0000, color: #fff;
 ```
 
-I leave "Shared Services" to Part 2 of the series, as I plan to get into a lower level with more code.
+I'm planning to cover _Shared Services_ in the series' second part. For the time being, let's assume we have a Shared Services account, it has the basic architecture set up and it provides some level of build and deployment capabilities.
 
-For the time being, let's assume we have a Shared Services account, it has the basic architecture set up and it provides some level of build and deployment capabilities.
+To avoid a chicken or eggs situation, Shared Services will also be managed by the system administrators using infrastructure-as-code from their local workstations. Since Shared Services account will host the infrastructure for our build jobs and CI/CD pipelines, everything else on AWS cloud will be fully automated through pipelines.
 
 ---
 
-## Workload Infra Base
+## Workload Infrastructure Base
 
 Our design thinking on how we should organize our AWS resources led us to several questions, such as:
 
@@ -132,15 +103,17 @@ Our design thinking on how we should organize our AWS resources led us to severa
 - How can we control dependencies in an ecosystem with many microservices and avoid cyclic dependencies
 - How can we keep the number of dependencies between microservices at a minimum, so they continue to be easily disposable
 
-**Workload Infra Base** is our answer to this problem.
+**Workload Infrastructure Base** is our answer to this problem.
 
 A workload can be either a SaaS or a core service. A core service, such as CRM or Invoicing, is part of the company's platform, which serves all SaaS offered by the company.
 
-A component represents a microservice, or a miniservice, in which we manage only the **compute** resources, gateways and event mappings. Anything else is managed in Workload Infra Base, which can be one or more infrastructure-as-code repositories.
+A component represents a microservice, or a miniservice, in which we manage only the compute resources, gateways and event mappings. Anything else is managed in Workload Infrastructure Base, which can be one or more infrastructure-as-code repositories.
+
+Our design led us to a modular approach for managing AWS resources, ensuring minimal dependencies and easy disposal of microservices. Each workload, either a SaaS or a core service, has components managing compute resources, gateways, and event mappings, with shared resources managed in a separate infrastructure base.
 
 For example, if we think of a typical AWS serverless application:
 
-- Infra Base manages Route 53 zone, ACM certificate, KMS key, all IAM roles including Lambda function execution roles, DynamoDB tables, SQS queues, S3 buckets, EventBridge Bus, Pipe etc
+- Infrastructure Base manages Route 53 zone, ACM certificate, KMS key, all IAM roles including Lambda function execution roles, DynamoDB tables, SQS queues, S3 buckets, EventBridge Bus, Pipe etc
 - The component manages the API Gateway and Lambda function. It imports / references ARNs of IAM roles, DynamoDB tables, SQS queues, S3 buckets etc. so it can define event mappings and add IAM policies for its implicit resources to access the _referenced_ AWS resources
 
 ```mermaid
@@ -159,11 +132,11 @@ classDef base fill:#f96, stroke:#303;
 classDef cmp color:#fff, fill:#b509ac, stroke:#303;
 ```
 
-Assume we have a CRM system, in which Customer Service exposes an API for our web apps as well as backends of SaaS applications to get customer details. Hence, we want our Components to import resources from other components, even from those outside their own workloads, too.
+Let's assume we have a CRM system, which hosts our _Customer Service_. The Customer Service exposes APIs for our web apps as well as backends of our SaaS workloads to get customer details. We want to manage these dependencies automatically, so we want our components across multiple workloads to retrieve the API Gateway endpoint automatically at deploy time.
 
-In another scenario, we may want to have a centralised Email microservice in our Core Services, and we'd like it to use SES identity domain, which is environment-agnostic therefore managed outside our workloads, in our Shared Services.
+In another scenario, we may have a singular email microservice hosted in our Core Services, and we'd like it to use SES identity domain, which is environment-agnostic therefore managed outside our workloads, in our Shared Services. Our components in SaaS workloads will consume the email service in an event-driven architecture model, sending events to the email service with payloads that match with the event schema advertised by the email service.
 
-In summary, AWS resources can be intra-workload or inter-workload dependencies, or both.
+Consequently, AWS resources can be intra-workload, or inter-workload dependencies, or both. As the number of workloads and their components grow, managing resource dependencies must be handled with maintainability and disposibility in mind.
 
 ```mermaid
 flowchart TD
@@ -194,7 +167,7 @@ classDef cmp color:#fff, fill:#b509ac, stroke:#303;
 
 ---
 
-## Inter-Workload and Intra-Workload Dependencies in Infrastructure-as-Code
+## Inter-Workload and Intra-Workload Dependencies
 
 Terraform has quickly become the de-facto in infrastructure-as-code but it does not fill the gap between _infrastructure_ and _application code_, and that's expected, because it's not designed for software development.
 
@@ -202,21 +175,20 @@ We can use AWS CDK as the singular approach to implement the infra base and comp
 
 Whilst this approach has its many pros, there are some important drawbacks of using AWS CDK from our perspective:
 
-1. Import & Export functionality in CloudFormation creates physical dependencies between CloudFormation stacks, similar to the referential integrity concept in RDBMS. CloudFormation refuses to delete the exported resources until no other CloudFormation stack imports them. This approach will cause human interventions eventually during major refactoring activities. Imagine logging into prod environment and deleting CloudFormation stacks manually. That's not going to work for us.
-2. Cloud Development Kits like AWS CDK have brought the power of programming languages into infrastructure-as-code, enabling full stack engineering and rapid software development. Enterprises can produce reusable and modular CDK modules as `npm`, `pip`, or `go` packages, but there aren't many reusable CDK modules available in the wider community. On the other hand, there are many production-ready modules available in Terraform today.
-3. This is my personal opinion and I'm sure many of you will disagree with this, but I don't buy into using programming languages for infrastructure-as-code. Although I've been using AWS CDK for my other projects lately, I'm still an advocate of using more limited and strict languages like YAML for infrastructure-as-code. I think "The best code is no code at all" is a good saying for infrastructure-as-code. No matter how simple a programming language is, it always brings some complexity overhead. With HCL or YAML, there is not much of a major room for any runtime upgrades or weird runtime errors or any unintended behaviours:
+1. Cloud Development Kits like AWS CDK have brought the power of programming languages into infrastructure-as-code, enabling full stack engineering and rapid software development. Enterprises can produce reusable and modular CDK modules as `npm`, `pip`, or `go` packages, but there aren't many reusable CDK modules available in the wider community. On the other hand, there are many production-ready modules available in Terraform today.
+2. This is my personal opinion and I'm sure many of you will disagree with this, but I don't buy into using programming languages for infrastructure-as-code. Although I've been using AWS CDK for my other projects lately, I'm still an advocate of using more limited and strict languages like YAML for infrastructure-as-code. I think "The best code is no code at all" is a good saying for infrastructure-as-code. No matter how simple a programming language is, it always brings some complexity overhead. With HCL or YAML, there is not much of a major room for any runtime upgrades or weird runtime errors or any unintended behaviours:
    - You need knowledge to write good code in a programming language and you need to replenish your knowledge occassionally because programming languages evolve continuously
    - Programming language releases have an expiry date, and that means you will need to perform maintenance or even refactor code if new versions have any breaking changes.
 
-Third is an opinion and we could have lived with the first drawback, but the second one is the deal breaker. We're quite limited on resources (people and time), and we can't maintain 1000s of lines of infrastructure-as-code just to reinvent the wheel.
+Second is an opinion, but the first one is the deal breaker. We're quite limited on resources (people and time), and we can't maintain 1000s of lines of infrastructure-as-code just to reinvent the wheel.
 
-An alternative could be also "CDK for Terraform", but we are not comfortable with living on the cutting edge as CDKTF "may still have breaking changes before its 1.0 release".
+An alternative could be also CDK for Terraform, but we are not comfortable with living on the cutting edge as CDKTF "may still have breaking changes before its 1.0 release".
 
 We could also investigate [Pulumi](https://www.pulumi.com/docs/concepts/vs/terraform/). Its features appear to be very promising, but Terraform's de-facto position within the wider community, is still the tiebreaker for us. With Terraform we have a limitless number of reusable modules available, and not to mention that our existing Terraform knowledge helped our delivery rate in early days.
 
 ---
 
-Obviously, Terraform would not be good enough on its own for software development and testing locally, so we started experimenting with a hybrid-solution to get the best out of two different worlds:
+Using Terraform for infrastructure and AWS SAM for serverless application packaging, we created a hybrid solution. This approach leverages Terraform’s reusable modules and AWS SAM’s local testing capabilities, providing a robust and scalable infrastructure management system.
 
 - We use Terraform to build and manage our workloads' infra base
 - We use AWS SAM to **build and package but _not to deploy_** our serverless applications
@@ -231,16 +203,12 @@ Obviously, Terraform would not be good enough on its own for software developmen
     Swipe left to see how our pipelines work in our hybrid solution.
 </div>
 
-Thanks to trunk-based development, strict conventional commits and automated semantic versioning, our builds produce immutable builds that we build once and deploy many. CD pipelines understand the target environment from the artefact version and perform Terraform plan & apply, which does CloudFormation stack create/update in the background.
+Thanks to trunk-based development, strict conventional commits and automated semantic versioning, our builds produce immutable builds that we build once and deploy many. CD pipelines determine the target environment from the artefact version and perform Terraform plan and apply, which does CloudFormation stack create/update in the background.
 
 Finally, if the Workload Infra Base gets very big, we can segregate into 2 or more repositories and orchestrate their delivery using [Terragrunt](https://terragrunt.gruntwork.io/).
 
-We were quite happy with our experiment and decided to follow this pattern in building SaaS at Xecuta. I understand our approach may seem too complex or unnecessary for some, but again, best out of two worlds:
+## Conclusion
 
-- Thanks to Terraform, we can reuse terraform modules produced by the community and/or build our own private modules, resulting in low and modular LoC for our infrastructure-as-code
-- Thanks to AWS SAM, we can develop serverless applications and test them locally
-- We can still manage inter-workload and intra-workload dependencies in a consistent and reliable way
+Our hybrid solution with Terraform and AWS SAM allows us to reuse community modules, manage dependencies efficiently, and develop serverless applications with local testing capabilities. This approach balances simplicity with robust infrastructure management, crucial for our startup’s growth.
 
-I hope you enjoyed my first blog post about Workload Infra Base pattern with hybrid implementation using AWS SAM and Terraform.
-
-Part 2 of this series will continue with which SCM and Orchestration tool(s) we opted to use and how we built our Shared Services initially.
+Stay tuned for Part 2, where I'll delve into our chosen SCM and orchestration tools and how we built our Shared Services.
