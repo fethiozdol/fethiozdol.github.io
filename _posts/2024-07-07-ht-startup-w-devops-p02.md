@@ -1,17 +1,20 @@
 ---
 layout: post
-title: How-to Startup with DevOps from Day 0 – Part 2
-date: 2024-07-07 00:00:00
+title: Kickstarting Your Startup with DevOps from Day Zero – Part 2
+date: 2025-01-01 00:00:00
 description: |
   This blog series aim to stop you delaying DevOps for your new startup.
-  In the first section, I'm going to talk about which DevOps services and tools we use at Xecuta and later a simple shared services account architecture that serve us in our early days.
-tags: devops day0 aws terraform azure-devops
+  In the first part of this series, I'll talk about our architecture principles and our design thinking which led us to organize our AWS environments and choose tools and services.
+tags: devops day0 aws terraform cdk aws-cdk
 categories: >
   startup
 featured: true
 mermaid:
   enabled: true
   zoomable: true
+images:
+  compare: false
+  slider: true
 giscus_comments: true
 related_posts: false
 ---

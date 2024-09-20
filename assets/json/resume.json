@@ -1,53 +1,54 @@
 {
   "$schema": "https://raw.githubusercontent.com/reorx/jsoncv/master/schema/jsoncv.schema.json",
   "basics": {
-    "name": "Fethi Ozdol",
+    "name": "Mechmet Fetchi Ozdol",
     "label": "AWS Solutions Architect",
-    "location": {
-      "address": "",
-      "postalCode": "",
-      "city": "London",
-      "countryCode": "UK"
-    },
+    "location": { "address": "", "postalCode": "W2", "city": "London", "countryCode": "UK" },
     "image": "",
     "email": "",
+    "phone": "",
     "url": "https://thisismypattern.com",
-    "profiles": [
-      {
-        "network": "LinkedIn",
-        "username": "",
-        "url": "https://www.linkedin.com/in/mfethio/"
-      }
-    ],
-    "summary": "An AWS Solutions Architect with 15 years cross-functional experience across multiple industries. Outside IR35 contracts only. No visa or work permit required in UK and EU."
+    "profiles": [{ "network": "LinkedIn", "username": "", "url": "https://www.linkedin.com/in/mfethio/" }],
+    "summary": "An AWS Solutions Architect with 15 years cross-functional experience across multiple industries. Outside IR35 contracts only. No visa or work permit required in UK and EU. Please contact to enquire Security Clearance."
   },
   "work": [
     {
-      "name": "Xecuta",
-      "location": "London, United Kingdom",
-      "position": "Director",
-      "url": "https://www.xecuta.co.uk",
-      "startDate": "2024-02-01",
-      "endDate": "",
-      "summary": "I lead the development of the company's SaaS products, providing architecture, design, and implementation expertise."
-    },
-    {
       "name": "eCreation Media Technology",
       "location": "London, United Kingdom",
-      "position": "Solutions Architect",
+      "position": "AWS Solutions Architect",
       "url": "https://www.ecreationmedia.tv",
       "startDate": "2024-01-01",
-      "endDate": "",
-      "summary": "Technology and AWS cloud architecture consultancy and solutions to multiple clients."
+      "summary": "eCreation Media provides software solutions to top UK media industry companies. Whilst at eCreation, I have worked with multiple clients as an AWS Architect to deliver media software in AWS cloud.",
+      "highlights": [
+        "Multi-award winning British broadcasting company: Modernising their media broadcasting platform by using AWS serverless stack to integrate their vendor provided media broadcasting software with other systems in AWS cloud.",
+        "UK top media data communication and transmission provider: Supervising new feature development on their linear and non-linear content interchange platform, which uses AWS Elemental Services including MediaConnect, MediaLive, and MediaPackage."
+      ]
+    },
+    {
+      "name": "Xecuta",
+      "location": "London, United Kingdom",
+      "position": "Chief Architect",
+      "url": "https://www.xecuta.co.uk",
+      "startDate": "2024-02-01",
+      "summary": "Xecuta aims to provide Software as a Service offerings for small-medium business' affordability. I act as the Chief Architect in the company during my off-contract working hours and I lead the company's SaaS products development, providing architecture, design, and implementation supervision and expertise.",
+      "highlights": [
+        "Built a SaaS called 'RPA Farm' from scratch in AWS Cloud. The service provides 24/7 service for 3 UK insurance companies.",
+        "Built a SaaS called 'Document Analysis Service' from scratch in AWS Cloud. The service provides 24/7 service for 1 non-UK small business."
+      ]
     },
     {
       "name": "Synapx",
       "location": "London, United Kingdom",
-      "position": "Director, Cloud Engineer",
+      "position": "Chief Architect",
       "url": "https://www.synapx.co.uk",
       "startDate": "2022-06-01",
       "endDate": "2023-12-01",
-      "summary": "Built the company's device management, security and compliance system using Microsoft Azure AD, Microsoft Intune, Microsoft Defender, and Microsoft O365. Google Chrome Browser Management using Google Workspace and Cloud Identity. Defined company standards and naming conventions for the company's tech inventory and environment management. Took up outside IR35 contract roles through Synapx Ltd."
+      "summary": "Chief Architect in the company's IT consultancy projects in AWS and Azure. I also took up short outside IR35 contract roles through Synapx Ltd.",
+      "highlights": [
+        "Built the company's device management, security and compliance system using Microsoft Azure AD, Microsoft Intune, Microsoft Defender, and Microsoft O365",
+        "Google Chrome Browser Management using Google Workspace and Cloud Identity",
+        "Defined company standards and naming conventions for the company's tech inventory and environment management."
+      ]
     },
     {
       "name": "Accenture",
@@ -111,7 +112,7 @@
   "projects": [
     {
       "name": "RPA Farm | Xecuta",
-      "description": "API-driven B2B SaaS to host and execute RPA with pay-per-use pricing model at 1ms granularity",
+      "description": "RPA Farm is a software as a service (SaaS) that enables Robotic Process Automation (RPA) to its business clients as the most cost-effective RPA service on the market thanks to its pay-per-use pricing model at 1 millisecond granularity. The service is built as fully serverless on AWS cloud and can execute Robot Framework scripts that can be self-managed or Xecuta-managed. It provides APIs for single or multiple task execution on demand. As Chief Architect, I designed its business and operating model, designed and implemented its cloud architecture and wrote backend code in Node.JS and Python.",
       "url": "https://rpafarm.com",
       "keywords": [
         "Amazon CloudFront",
@@ -135,7 +136,7 @@
     },
     {
       "name": "Document Analysis Service | Xecuta",
-      "description": "API-Driven B2B SaaS to extract text information from documents and images with pay-per-use pricing model at 1 page granularity",
+      "description": "Document Analysis Service is a software as a service (SaaS) that can extract text from documents and images. Unlike its counterparts, it aims to be the most cost-effective service on the market thanks to its pay-per-use pricing model at 1 page granularity. The service is built as fully serverless on AWS cloud and can integrate with Amazon Textract or Google Cloud DocumentAI for complex use cases that require Machine Learning or Generative AI. It provides APIs for single or multiple page processing on demand. As Chief Architect, I designed its business and operating model, designed and implemented its cloud architecture and wrote backend code in Node.JS and Python.",
       "url": "https://www.xecuta.co.uk",
       "keywords": ["Amazon Textract", "Google Cloud DocumentAI"],
       "startDate": "2024-02-01",
@@ -282,20 +283,8 @@
       "url": "https://www.credly.com/badges/73ae53c6-4bc8-4e07-9712-b03d7158d404/public_url",
       "icon": "fa-brands fa-aws"
     },
-    {
-      "name": "Technology Architect Associate",
-      "date": "2017-01-01",
-      "issuer": "Accenture MTA programme",
-      "url": "",
-      "icon": ""
-    },
-    {
-      "name": "ITIL Foundation v3",
-      "date": "2015-01-01",
-      "issuer": "AXELOS Global Best Practice",
-      "url": "",
-      "icon": ""
-    }
+    { "name": "Technology Architect Associate", "date": "2017-01-01", "issuer": "Accenture MTA programme", "url": "", "icon": "" },
+    { "name": "ITIL Foundation v3", "date": "2015-01-01", "issuer": "AXELOS Global Best Practice", "url": "", "icon": "" }
   ],
   "publications": [
     {
@@ -349,7 +338,11 @@
         "Glue",
         "QuickSight",
         "Textract",
-        "Amazon Connect"
+        "Amazon Connect",
+        "MediaConnect",
+        "MediaLive",
+        "MediaPackage",
+        "MediaStore"
       ]
     },
     {
@@ -384,44 +377,20 @@
       "icon": "fa-solid fa-hashtag",
       "keywords": ["Fargate", "Docker", "Kubernetes", "AWS EKS", "AWS ECS", "Amazon Fargate"]
     },
-    {
-      "name": "Programming",
-      "level": "",
-      "icon": "fa-solid fa-hashtag",
-      "keywords": ["Node.js", "Python", "Golang", "COBOL", "PL/I", "Java"]
-    },
-    {
-      "name": "Scripting",
-      "level": "",
-      "icon": "fa-solid fa-hashtag",
-      "keywords": ["Shell", "PowerShell"]
-    }
+    { "name": "Programming", "level": "", "icon": "fa-solid fa-hashtag", "keywords": ["Node.js", "Python", "Golang", "COBOL", "PL/I", "Java"] },
+    { "name": "Scripting", "level": "", "icon": "fa-solid fa-hashtag", "keywords": ["Shell", "PowerShell"] }
   ],
   "languages": [
-    {
-      "language": "Turkish",
-      "fluency": "Native speaker",
-      "icon": ""
-    },
-    {
-      "language": "English",
-      "fluency": "Fluent",
-      "icon": ""
-    }
+    { "language": "Turkish", "fluency": "Native speaker", "icon": "" },
+    { "language": "English", "fluency": "Fluent", "icon": "" }
   ],
-  "interests": [
-    {
-      "name": "Music",
-      "icon": "fa-solid fa-guitar",
-      "keywords": ["Classical guitar"]
-    }
-  ],
+  "interests": [{ "name": "Music", "icon": "fa-solid fa-guitar", "keywords": ["Classical guitar"] }],
   "awards": [],
   "volunteer": [],
   "references": [],
   "meta": {
     "canonical": "https://raw.githubusercontent.com/reorx/jsoncv/master/schema/jsoncv.schema.json",
-    "version": "v1.0.0",
-    "lastModified": "2024-06-28T19:00:00"
+    "version": "v1.0.2",
+    "lastModified": "2024-09-20T13:30:00"
   }
 }
