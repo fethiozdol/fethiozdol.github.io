@@ -9,7 +9,7 @@
     "phone": "",
     "url": "https://thisismypattern.com",
     "profiles": [{ "network": "LinkedIn", "username": "", "url": "https://www.linkedin.com/in/mfethio/" }],
-    "summary": "An AWS Solutions Architect with 15 years cross-functional experience across multiple industries. Outside IR35 contracts only. No visa or work permit required in UK and EU. Please contact to enquire Security Clearance."
+    "summary": "An AWS Solutions Architect with 15 years cross-functional experience across multiple industries. EU national, UK Indefinite Leave To Remain. Please contact to enquire Security Clearance."
   },
   "work": [
     {
@@ -27,10 +27,10 @@
     {
       "name": "Xecuta",
       "location": "London, United Kingdom",
-      "position": "Chief Architect",
+      "position": "AWS Solutions Architect",
       "url": "https://www.xecuta.co.uk",
       "startDate": "2024-02-01",
-      "summary": "Xecuta aims to provide Software as a Service offerings for small-medium business' affordability. I act as the Chief Architect in the company during my off-contract working hours and I lead the company's SaaS products development, providing architecture, design, and implementation supervision and expertise.",
+      "summary": "Xecuta aims to provide Software as a Service offerings for small-medium business' affordability. I act as the Chief Architect in the company during my off-contract working hours and I lead the company's SaaS products development.",
       "highlights": [
         "Built a SaaS called 'RPA Farm' from scratch in AWS Cloud. The service provides 24/7 service for 3 UK insurance companies.",
         "Built a SaaS called 'Document Analysis Service' from scratch in AWS Cloud. The service provides 24/7 service for 1 non-UK small business."
@@ -39,7 +39,7 @@
     {
       "name": "Synapx",
       "location": "London, United Kingdom",
-      "position": "Chief Architect",
+      "position": "AWS Solutions Architect",
       "url": "https://www.synapx.co.uk",
       "startDate": "2022-06-01",
       "endDate": "2023-12-01",
@@ -111,15 +111,43 @@
   ],
   "projects": [
     {
+      "name": "Media Broadcasting Platform | eCreation Media Technology",
+      "description": "Modernising a client's media broadcasting platform using AWS Serverless stack and vendor provided media broadcasting software.",
+      "keywords": ["Amazon API Gateway", "Lambda", "TypeScript", "Amazon SQS", "Amazon S3", "Amazon EventBridge", "Bitbucket"],
+      "startDate": "2024-06-01",
+      "endDate": "2024-08-30"
+    },
+    {
+      "name": "Media Content Interchange Platform | eCreation Media Technology",
+      "description": "Supervising new feature development and providing cloud architecture design for the client's linear and non-linear content interchange platform.",
+      "keywords": [
+        "Amazon CloudFront",
+        "Amazon API Gateway",
+        "Lambda",
+        "Python",
+        "Amazon EventBridge",
+        "Amazon SQS",
+        "Amazon S3",
+        "GitHub Actions",
+        "Terraform",
+        "MediaConnect",
+        "MediaLive",
+        "MediaPackage",
+        "MediaStore"
+      ],
+      "startDate": "2024-01-01",
+      "endDate": "2024-05-30"
+    },
+    {
       "name": "RPA Farm | Xecuta",
-      "description": "RPA Farm is a software as a service (SaaS) that enables Robotic Process Automation (RPA) to its business clients as the most cost-effective RPA service on the market thanks to its pay-per-use pricing model at 1 millisecond granularity. The service is built as fully serverless on AWS cloud and can execute Robot Framework scripts that can be self-managed or Xecuta-managed. It provides APIs for single or multiple task execution on demand. As Chief Architect, I designed its business and operating model, designed and implemented its cloud architecture and wrote backend code in Node.JS and Python.",
+      "description": "RPA Farm is a software as a service (SaaS) that provides Robotic Process Automation (RPA) as a service (RPAaaS) with pay-per-use pricing model at 1 millisecond granularity. The service is built as fully serverless on AWS cloud and can execute Robot Framework scripts that can be self-managed or Xecuta-managed. It provides APIs for single or multiple task execution on demand. As Chief Architect, I designed and implemented its cloud architecture, built its delivery lifecycle and DevOps processes, and wrote backend code in Node.js and Python.",
       "url": "https://rpafarm.com",
       "keywords": [
         "Amazon CloudFront",
         "Amazon API Gateway",
         "Lambda",
         "TypeScript",
-        "Node.JS",
+        "Node.js",
         "Python",
         "Amazon DynamoDB",
         "Amazon SQS",
@@ -136,7 +164,7 @@
     },
     {
       "name": "Document Analysis Service | Xecuta",
-      "description": "Document Analysis Service is a software as a service (SaaS) that can extract text from documents and images. Unlike its counterparts, it aims to be the most cost-effective service on the market thanks to its pay-per-use pricing model at 1 page granularity. The service is built as fully serverless on AWS cloud and can integrate with Amazon Textract or Google Cloud DocumentAI for complex use cases that require Machine Learning or Generative AI. It provides APIs for single or multiple page processing on demand. As Chief Architect, I designed its business and operating model, designed and implemented its cloud architecture and wrote backend code in Node.JS and Python.",
+      "description": "Document Analysis Service is a software as a service (SaaS) that can extract text from documents and images. Unlike its counterparts, it aims to be the most cost-effective service on the market thanks to its pay-per-use pricing model at 1 page granularity. The service is built as fully serverless on AWS cloud and it can integrate with Amazon Textract or Google Cloud DocumentAI for complex use cases that require Machine Learning or Generative AI. It provides APIs for single or multiple page processing on demand. As Chief Architect, I designed and implemented its cloud architecture, built its delivery lifecycle and DevOps processes, and wrote backend code in Node.js and Python.",
       "url": "https://www.xecuta.co.uk",
       "keywords": ["Amazon Textract", "Google Cloud DocumentAI"],
       "startDate": "2024-02-01",
@@ -177,7 +205,7 @@
         "Amazon Connect",
         "Amazon Lex",
         "Lambda",
-        "Node.JS",
+        "Node.js",
         "Amazon DynamoDB",
         "Amazon SQS",
         "Amazon SNS",
@@ -205,7 +233,7 @@
         "Amazon CloudFront",
         "Amazon API Gateway",
         "AWS Lambda",
-        "Node.JS",
+        "Node.js",
         "Python",
         "Amazon DynamoDB",
         "Amazon SQS",
@@ -268,6 +296,7 @@
       "keywords": ["Java", "Amazon EC2", "Amazon RDS for Oracle", "Amazon RDS for Microsoft SQL Server", "Chef", "Jenkins", "Nagios"]
     }
   ],
+  "sideProjects": [],
   "certificates": [
     {
       "name": "AWS Certified Solutions Architect – Associate",
@@ -306,8 +335,10 @@
         "KMS",
         "EFS",
         "EC2",
-        " EC2 Image Builder",
-        "EBS",
+        "EC2 Image Builder",
+        "EKS",
+        "ECS",
+        "Fargate",
         "ELB",
         "VPC",
         "WAF",
@@ -350,6 +381,8 @@
       "level": "",
       "icon": "fa-solid fa-hashtag",
       "keywords": [
+        "Docker",
+        "Kubernetes",
         "Terraform",
         "Terragrunt",
         "cdktf",
@@ -372,13 +405,11 @@
       "keywords": ["Amazon DynamoDB", "Amazon Aurora", "Amazon RDS", "ElastiCache", "MySQL", "Oracle", "Microsoft SQL Server", "IBM DB2"]
     },
     {
-      "name": "Containerisation",
+      "name": "Programming",
       "level": "",
       "icon": "fa-solid fa-hashtag",
-      "keywords": ["Fargate", "Docker", "Kubernetes", "AWS EKS", "AWS ECS", "Amazon Fargate"]
-    },
-    { "name": "Programming", "level": "", "icon": "fa-solid fa-hashtag", "keywords": ["Node.js", "Python", "Golang", "COBOL", "PL/I", "Java"] },
-    { "name": "Scripting", "level": "", "icon": "fa-solid fa-hashtag", "keywords": ["Shell", "PowerShell"] }
+      "keywords": ["Node.js", "JavaScript", "TypeScript", "Python", "Golang", "COBOL", "PL/I", "Java", "Unix Shell", "PowerShell"]
+    }
   ],
   "languages": [
     { "language": "Turkish", "fluency": "Native speaker", "icon": "" },
@@ -390,7 +421,7 @@
   "references": [],
   "meta": {
     "canonical": "https://raw.githubusercontent.com/reorx/jsoncv/master/schema/jsoncv.schema.json",
-    "version": "v1.0.2",
-    "lastModified": "2024-09-20T13:30:00"
+    "version": "v1.0.3",
+    "lastModified": "2024-09-24T13:30:00"
   }
 }
