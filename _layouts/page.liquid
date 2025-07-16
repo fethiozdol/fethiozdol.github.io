@@ -10,13 +10,21 @@ layout: default
 
 <div class="post">
   <header class="post-header">
-    {% if page.custom_title %}
-      <h1 class="post-title">{{ page.custom_title }}</h1>
-    {% endif %}
-
-    {% unless page.hide_description %}
+    {% if page.project_intro %}
+      {% include project_intro.liquid img=page.img title=page.title icons=page.icons description=page.description %}
+      <hr>
+      {% if page.repository %}
+        <div class="repositories d-flex flex-wrap flex-md-row flex-column justify-content-between align-items-center">
+          {% for repo in page.repository %}
+            {% include repository/repo.liquid repository=repo %}
+          {% endfor %}
+        </div>
+        <hr>
+      {% endif %}
+    {% else %}
+      <h1 class="post-title">{{ page.title }}</h1>
       <p class="post-description">{{ page.description }}</p>
-    {% endunless %}
+    {% endif %}
   </header>
 
   <article>

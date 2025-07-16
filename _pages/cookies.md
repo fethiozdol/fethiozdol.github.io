@@ -2,7 +2,6 @@
 layout: page
 permalink: /cookies/
 title: "cookies"
-custom_title: "Cookie Policy"
 description: "This Cookie Policy outlines the types of cookies used in the website."
 nav: false
 pretty_table: true
