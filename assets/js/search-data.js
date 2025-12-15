@@ -69,7 +69,12 @@ ninja.data = [{
           section: "News",},{id: "news-we-re-gathering-valuable-feedback-to-improve-the-app-before-its-official-launch-teshub-s-version-alpha-has-been-a-great-success-with-14-volunteering-users-testing-our-app-version-beta-is-set-to-launch-soon-incorporating-user-feedback-and-new-features",
           title: 'We’re gathering valuable feedback to improve the app before its official launch. Teshub’s...',
           description: "",
-          section: "News",},{
+          section: "News",},{id: "projects-project-10",
+          title: 'project 10',
+          description: "A project with an introduction section",
+          section: "Projects",handler: () => {
+              window.location.href = "/projects/10_project/";
+            },},{
         id: 'social-email',
         title: 'email',
         section: 'Socials',
