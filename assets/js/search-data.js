@@ -55,12 +55,7 @@ ninja.data = [{
             window.location.href = "/blog/2024/ht-startup-w-devops-p01/";
           
         },
-      },{id: "books-the-godfather",
-          title: 'The Godfather',
-          description: "",
-          section: "Books",handler: () => {
-              window.location.href = "/books/the_godfather/";
-            },},{id: "news-this-is-my-pattern-blog-goes-live-with-its-first-post",
+      },{id: "news-this-is-my-pattern-blog-goes-live-with-its-first-post",
           title: 'This Is My Pattern blog goes live with its first post!',
           description: "",
           section: "News",},{id: "news-i-m-excited-to-share-that-i-ve-joined-vehicularis-ltd-as-a-co-founder-we-re-building-a-mobile-app-that-aims-to-empower-cars-and-elevate-journeys-as-i-m-going-to-be-working-on-a-new-project-from-scratch-i-ve-decided-to-stop-working-on-the-blog-series-kickstarting-your-startup-with-devops-from-day-zero-and-start-a-new-series-based-on-my-experiences-and-insights-gained-while-building-this-app",
@@ -69,12 +64,7 @@ ninja.data = [{
           section: "News",},{id: "news-we-re-gathering-valuable-feedback-to-improve-the-app-before-its-official-launch-teshub-s-version-alpha-has-been-a-great-success-with-14-volunteering-users-testing-our-app-version-beta-is-set-to-launch-soon-incorporating-user-feedback-and-new-features",
           title: 'We’re gathering valuable feedback to improve the app before its official launch. Teshub’s...',
           description: "",
-          section: "News",},{id: "projects-project-10",
-          title: 'project 10',
-          description: "A project with an introduction section",
-          section: "Projects",handler: () => {
-              window.location.href = "/projects/10_project/";
-            },},{
+          section: "News",},{
         id: 'social-cv',
         title: 'CV',
         section: 'Socials',
