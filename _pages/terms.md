@@ -2,6 +2,7 @@
 layout: page
 permalink: /terms/
 title: "terms"
+custom_title: "Terms and Privacy Policy"
 description: "This Privacy Policy outlines the types of personal information that is received and collected and how it is used."
 nav: false
 pretty_table: true

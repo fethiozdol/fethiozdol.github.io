@@ -531,10 +531,10 @@ third_party_libraries:
     version: "1.1.0"
   mermaid:
     integrity:
-      js: "sha256-YbM1pG3wWnzhyYN49g5fPnen+2CKEFaZfopkkwSpNtY="
+      js: "sha256-0IMKbAVUbp7bj+IKj1RfPg3HxMMTTVhLrZwTqZ16ceA="
     url:
       js: "https://cdn.jsdelivr.net/npm/mermaid@{{version}}/dist/mermaid.min.js"
-    version: "10.7.0"
+    version: "11.12.2"
   photoswipe:
     integrity:
       js: "sha256-VCBpdxvrNNxGHNuTdNqK9kPFkev2XY7DYzHdmgaB69Q="
