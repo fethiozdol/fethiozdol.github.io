@@ -1,0 +1,36 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Resume from '../components/Resume.astro';
+import { site } from '../data/site';
+import { resumeData, resumeSections } from '../lib/resume';
+---
+
+<BaseLayout title="Experience | Fethi Ozdol" description={resumeData.basics?.summary ?? site.description} canonicalPath="/cv/">
+  <header class="page-header">
+    <p class="eyebrow">Curriculum vitae</p>
+    <h1>{resumeData.basics?.name ?? site.author}</h1>
+    {resumeData.basics?.label && <p class="lede">{resumeData.basics.label}</p>}
+    <div class="actions">
+      <a class="button button-primary" href={site.cvPdf}>
+        Download CV (PDF)
+      </a>
+      <a class="button" href={site.links.linkedin}>
+        LinkedIn
+      </a>
+    </div>
+  </header>
+  <div class="cv-layout">
+    <nav class="cv-toc" aria-label="CV sections">
+      <ul>
+        {resumeSections.map(({ key, title }) => (
+          <li>
+            <a href={`#${key}`}>{title}</a>
+          </li>
+        ))}
+      </ul>
+    </nav>
+    <div class="cv" data-pagefind-body data-pagefind-meta="title:Experience – Fethi Ozdol">
+      <Resume />
+    </div>
+  </div>
+</BaseLayout>

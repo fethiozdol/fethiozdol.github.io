@@ -5,9 +5,9 @@ date: 2024-07-01 00:00:00
 description: |
   This blog series aim to stop you delaying DevOps for your new startup.
   In the first part of this series, I'll talk about our architecture principles and our design thinking which led us to organize our AWS environments and choose tools and services.
-tags: devops day0 aws terraform cdk aws-cdk
-categories: >
-  startup
+tags: [devops, day0, aws, terraform, cdk, aws-cdk]
+categories: [startup]
+permalink: /blog/2024/ht-startup-w-devops-p01/
 featured: true
 mermaid:
   enabled: true
@@ -195,13 +195,13 @@ Using Terraform for infrastructure and AWS SAM for serverless application packag
 - We wrap SAM projects into isolated Terraform states, which have only one Terraform resource, and that is an [`aws_cloudformation_stack`](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/cloudformation_stack)
 - We use [`terraform_remote_state`](https://developer.hashicorp.com/terraform/language/state/remote-state-data) to access workload infra base outputs and pass their values to the underlying CloudFormation stack through CloudFormation parameters
 
-<swiper-container keyboard="true" navigation="true" pagination="true" pagination-clickable="true" pagination-dynamic-bullets="true" rewind="true">
-  <swiper-slide>{% include figure.liquid path="assets/img/2024-07-01-how-to-startup-with-devops-part-1/diagram-01.png" class="img-fluid rounded z-depth-1" zoomable=true %}</swiper-slide>
-  <swiper-slide>{% include figure.liquid path="assets/img/2024-07-01-how-to-startup-with-devops-part-1/diagram-02.png" class="img-fluid rounded z-depth-1" zoomable=true %}</swiper-slide>
-</swiper-container>
-<div class="caption">
-    Swipe left to see how our pipelines work in our hybrid solution.
-</div>
+<figure class="article-gallery">
+  <ul class="gallery-track">
+    <li><a href="/assets/img/2024-07-01-how-to-startup-with-devops-part-1/diagram-01.png"><img src="/assets/img/2024-07-01-how-to-startup-with-devops-part-1/diagram-01.png" srcset="/assets/img/2024-07-01-how-to-startup-with-devops-part-1/diagram-01-480.webp 480w, /assets/img/2024-07-01-how-to-startup-with-devops-part-1/diagram-01-800.webp 800w, /assets/img/2024-07-01-how-to-startup-with-devops-part-1/diagram-01-1400.webp 1400w" sizes="95vw" width="3450" height="1230" loading="lazy" alt="Hybrid solution: a Terraform component wraps an AWS SAM application (API Gateway and Lambda) in an aws_cloudformation_stack resource, and passes workload infra base outputs (DynamoDB, DynamoDB streams, Lambda IAM role) read through terraform_remote_state as CloudFormation parameters."></a></li>
+    <li><a href="/assets/img/2024-07-01-how-to-startup-with-devops-part-1/diagram-02.png"><img src="/assets/img/2024-07-01-how-to-startup-with-devops-part-1/diagram-02.png" srcset="/assets/img/2024-07-01-how-to-startup-with-devops-part-1/diagram-02-480.webp 480w, /assets/img/2024-07-01-how-to-startup-with-devops-part-1/diagram-02-800.webp 800w, /assets/img/2024-07-01-how-to-startup-with-devops-part-1/diagram-02-1400.webp 1400w" sizes="95vw" width="4119" height="1413" loading="lazy" alt="The same hybrid solution with pipelines: the CI pipeline runs sam build, computes a semantic version and stores the build artifact; the CD and on-demand deploy pipelines take the artifact, determine the target environment from its version and run terraform plan and apply."></a></li>
+  </ul>
+  <figcaption>Swipe left to see how our pipelines work in our hybrid solution.</figcaption>
+</figure>
 
 Thanks to trunk-based development, strict conventional commits and automated semantic versioning, our builds produce immutable builds that we build once and deploy many. CD pipelines determine the target environment from the artefact version and perform Terraform plan and apply, which does CloudFormation stack create/update in the background.
 

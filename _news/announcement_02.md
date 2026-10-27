@@ -1,10 +1,11 @@
 ---
 layout: post
-date: 2025-01-01 00:00:00-0400
+date: 2025-01-01T00:00:00-04:00
+permalink: /news/announcement_02/
 inline: true
 related_posts: false
 title: "Joined Vehicularis Ltd"
-tags: vehicularis teshub
+tags: [vehicularis, teshub]
 ---
 
 I'm excited to share that I've joined Vehicularis Ltd as a Co-Founder!

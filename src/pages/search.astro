@@ -1,0 +1,55 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { site } from '../data/site';
+---
+
+<BaseLayout title={`Search | ${site.title}`} description="Search articles, announcements and the CV." canonicalPath="/search/">
+  <link slot="head" rel="stylesheet" href="/pagefind/pagefind-component-ui.css" />
+  <header class="page-header">
+    <h1>Search</h1>
+    <p class="lede">Articles, announcements, the CV and site policies.</p>
+  </header>
+  <div class="search">
+    <pagefind-config lang="en"></pagefind-config>
+    <pagefind-input autofocus placeholder="Search this site"></pagefind-input>
+    <pagefind-summary></pagefind-summary>
+    <pagefind-results></pagefind-results>
+  </div>
+  <noscript>
+    <p>
+      Search needs JavaScript. You can browse <a href="/blog/">all writing</a>, <a href="/news/">announcements</a> and the <a href="/cv/">CV</a>{' '}
+      instead.
+    </p>
+  </noscript>
+  <script is:inline type="module" src="/pagefind/pagefind-component-ui.js"></script>
+</BaseLayout>
+
+<style>
+  .search {
+    --pf-text: var(--text);
+    --pf-text-secondary: var(--muted);
+    --pf-text-muted: var(--muted);
+    --pf-background: var(--surface);
+    --pf-border: var(--border);
+    --pf-border-focus: var(--accent);
+    --pf-hover: var(--panel);
+    --pf-mark: var(--text);
+    --pf-skeleton: var(--panel);
+    --pf-skeleton-shine: var(--surface);
+    --pf-outline-focus: var(--focus);
+    --pf-font: var(--sans);
+    --pf-input-height: 2.75rem;
+    --pf-summary-font-size: 0.9rem;
+    --pf-result-title-font-size: 1.05rem;
+    --pf-result-excerpt-font-size: 0.95rem;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 1rem;
+    max-width: var(--measure);
+  }
+
+  .search > :global(*) {
+    color-scheme: inherit;
+    min-width: 0;
+  }
+</style>

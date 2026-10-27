@@ -1,6 +1,7 @@
 ---
 layout: post
-date: 2024-07-01 00:00:00-0400
+date: 2024-07-01T00:00:00-04:00
+permalink: /news/announcement_01/
 inline: true
 related_posts: false
 title: "Hello World!"

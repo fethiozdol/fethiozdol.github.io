@@ -1,0 +1,23 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { site } from '../data/site';
+---
+
+<BaseLayout title="Repositories | Fethi Ozdol" description={`${site.author}'s public repositories on GitHub.`} canonicalPath="/repositories/">
+  <header class="page-header">
+    <h1>Repositories</h1>
+    <p class="lede">Public code and projects on GitHub.</p>
+  </header>
+  <div class="panel">
+    <p class="eyebrow">GitHub profile</p>
+    <h2 style="margin-top: 0">
+      <a href={site.links.github}>github.com/{site.githubUser}</a>
+    </h2>
+    <p>Browse repositories, contributions and activity directly on GitHub.</p>
+    <p>
+      <a class="button" href={`${site.links.github}?tab=repositories`}>
+        View repositories on GitHub
+      </a>
+    </p>
+  </div>
+</BaseLayout>
