@@ -23,6 +23,6 @@
   },
   "dependencies": {
     "astro": "^7.4.2",
-    "mermaid": "^11.17.2"
+    "mermaid": "^12.2.0"
   }
 }
