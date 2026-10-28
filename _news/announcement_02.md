@@ -1,0 +1,15 @@
+---
+layout: post
+date: 2025-01-01T00:00:00-04:00
+permalink: /news/announcement_02/
+inline: true
+related_posts: false
+title: "Joined Vehicularis Ltd"
+tags: [vehicularis, teshub]
+---
+
+I'm excited to share that I've joined Vehicularis Ltd as a Co-Founder!
+
+We're building a mobile app that aims to empower cars and elevate journeys.
+
+As I'm going to be working on a new project from scratch, I've decided to stop working on the blog series "Kickstarting Your Startup with DevOps from Day Zero" and start a new series based on my experiences and insights gained while building this app.

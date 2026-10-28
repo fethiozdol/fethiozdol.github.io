@@ -1,0 +1,7 @@
+dist/
+.astro/
+.tmp/
+.superpowers/
+.worktrees/
+package-lock.json
+assets/json/resume.json

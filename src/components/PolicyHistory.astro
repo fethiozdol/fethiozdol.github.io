@@ -1,0 +1,41 @@
+---
+interface Props {
+  entries: { version: string; date: string; author: string; description: string }[];
+  source: string;
+}
+
+const { entries, source } = Astro.props;
+---
+
+<h2 id="version-history">Version history</h2>
+<div class="table-scroll" role="region" aria-labelledby="version-history" tabindex="0">
+  <table>
+    <thead>
+      <tr>
+        <th scope="col">Version</th>
+        <th scope="col">Date</th>
+        <th scope="col">Author</th>
+        <th scope="col">Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      {[...entries].reverse().map((entry) => (
+        <tr>
+          <td>{entry.version}</td>
+          <td>{entry.date}</td>
+          <td>{entry.author}</td>
+          <td>{entry.description}</td>
+        </tr>
+      ))}
+    </tbody>
+  </table>
+</div>
+<p>
+  This history is also available as <a href={source}>JSON</a>.
+</p>
+
+<style>
+  td:not(:last-child) {
+    white-space: nowrap;
+  }
+</style>

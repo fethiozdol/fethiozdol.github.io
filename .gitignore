@@ -1,0 +1,10 @@
+node_modules/
+dist/
+.astro/
+.tmp/
+_site/
+.tweet-cache/
+.superpowers/
+.worktrees/
+.DS_Store
+.idea

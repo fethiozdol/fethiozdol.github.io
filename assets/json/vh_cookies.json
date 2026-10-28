@@ -1,0 +1,14 @@
+[
+  {
+    "version": "1.0",
+    "date": "03 July 2024",
+    "author": "Fethi Ozdol",
+    "description": "Initial version"
+  },
+  {
+    "version": "2.0",
+    "date": "27 October 2026",
+    "author": "Fethi Ozdol",
+    "description": "Removed Google Analytics, Google Tag Manager and the cookie consent banner; the site no longer sets cookies"
+  }
+]

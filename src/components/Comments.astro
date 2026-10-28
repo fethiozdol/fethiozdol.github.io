@@ -1,0 +1,20 @@
+---
+interface Props {
+  discussionsUrl: string;
+}
+
+const { discussionsUrl } = Astro.props;
+---
+
+<section class="comments" aria-labelledby="comments-title" data-pagefind-ignore>
+  <h2 id="comments-title">Comments</h2>
+  <p>
+    Questions and comments are welcome on GitHub Discussions. The link opens github.com, where GitHub's terms and privacy statement apply; nothing
+    from GitHub loads on this page.
+  </p>
+  <p>
+    <a class="button" href={discussionsUrl}>
+      Discuss on GitHub
+    </a>
+  </p>
+</section>

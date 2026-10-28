@@ -1,0 +1,74 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PolicyHistory from '../components/PolicyHistory.astro';
+import history from '../../assets/json/vh_cookies.json';
+---
+
+<BaseLayout
+  title="Cookie Policy | This is My Pattern"
+  description="Cookies and browser storage used by thisismypattern.com."
+  canonicalPath="/cookies/"
+>
+  <article class="article prose" data-pagefind-body>
+    <header class="page-header">
+      <p class="eyebrow">Policies</p>
+      <h1>Cookie Policy</h1>
+      <p class="lede">This website does not use analytics, and its own pages and scripts do not set cookies.</p>
+    </header>
+
+    <h2>1. Cookies</h2>
+    <p>
+      There is no cookie banner because there is nothing to consent to. The hosting provider, GitHub Pages, did not set any cookies on requests to
+      this website when last checked on 27 October 2026.
+    </p>
+
+    <h2 id="browser-storage">2. Browser storage</h2>
+    <div class="table-scroll" role="region" aria-labelledby="browser-storage" tabindex="0">
+      <table>
+        <thead>
+          <tr>
+            <th scope="col">Name</th>
+            <th scope="col">Type</th>
+            <th scope="col">When it is set</th>
+            <th scope="col">Expiry</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              <code>theme</code>
+            </td>
+            <td>Session storage</td>
+            <td>Only when you use the light/dark appearance switch, to remember your choice while you browse</td>
+            <td>When you close the tab</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h2>3. Other websites</h2>
+    <p>
+      Websites you choose to visit from links on this site, such as GitHub Discussions for comments, LinkedIn or X, may set their own cookies under
+      their own policies.
+    </p>
+
+    <h2>4. What changed</h2>
+    <p>
+      Earlier versions of this website used Google Analytics and Google Tag Manager for statistics, with a cookie consent pop-up. These were removed
+      in version 2.0 of this policy. Information collected by those services before their removal remains subject to Google's privacy policy.
+    </p>
+
+    <h2>5. Enabling, disabling and deleting cookies</h2>
+    <p>
+      You can use your internet browser to automatically or manually delete cookies and site storage. For more information, please refer to the
+      instructions in the Help section of your browser. This website works fully with cookies and storage disabled.
+    </p>
+
+    <h2>6. Your rights with respect to personal data</h2>
+    <p>
+      See the <a href="/terms/">Terms and Privacy Policy</a>.
+    </p>
+
+    <PolicyHistory entries={history} source="/assets/json/vh_cookies.json" />
+  </article>
+</BaseLayout>

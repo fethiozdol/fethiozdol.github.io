@@ -1,0 +1,26 @@
+---
+import type { GetStaticPaths } from 'astro';
+import PostLayout from '../../layouts/PostLayout.astro';
+import { getPublishedNews, renderEntry } from '../../lib/content';
+
+export const getStaticPaths = (async () => {
+  const news = await getPublishedNews();
+  const seen = new Set<string>();
+  return news.map((entry) => {
+    const path = entry.data.permalink.replace(/^\/news\//, '').replace(/\/$/, '');
+    if (seen.has(path)) throw new Error(`News route collision at ${entry.data.permalink}`);
+    seen.add(path);
+    return { params: { path }, props: { entry } };
+  });
+}) satisfies GetStaticPaths;
+
+const { entry } = Astro.props;
+const { Content } = await renderEntry(entry);
+---
+
+<PostLayout kind="news" {...entry.data}>
+  <Content />
+  <p slot="after" class="back-link">
+    <a href="/news/">All announcements</a>
+  </p>
+</PostLayout>

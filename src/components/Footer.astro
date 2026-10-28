@@ -1,0 +1,36 @@
+---
+import { obfuscatedMailto, site } from '../data/site';
+---
+
+<footer class="site-footer">
+  <div class="container">
+    <p>
+      © {new Date().getFullYear()} {site.author}. Hosted by <a href="https://pages.github.com/">GitHub Pages</a>.
+    </p>
+    <nav aria-label="Footer">
+      <ul>
+        <li>
+          <a href="/news/">Announcements</a>
+        </li>
+        <li>
+          <a href="/feed.xml">RSS</a>
+        </li>
+        <li>
+          <a href={site.links.linkedin}>LinkedIn</a>
+        </li>
+        <li>
+          <a href={site.links.x}>X</a>
+        </li>
+        <li>
+          <a href={obfuscatedMailto()}>Email</a>
+        </li>
+        <li>
+          <a href="/terms/">Privacy</a>
+        </li>
+        <li>
+          <a href="/cookies/">Cookies</a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</footer>

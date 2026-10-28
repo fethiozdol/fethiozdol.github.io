@@ -1,0 +1,116 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PostList from '../components/PostList.astro';
+import { Content as Biography } from '../data/about.md';
+import { obfuscatedMailto, site } from '../data/site';
+import { formatDate, getPublishedNews, getPublishedPosts, isoDate } from '../lib/content';
+import { resumeData } from '../lib/resume';
+
+const posts = (await getPublishedPosts()).slice(0, 3);
+const news = (await getPublishedNews()).slice(0, 5);
+const location = resumeData.basics?.location;
+---
+
+<BaseLayout
+  title={`${site.author} | ${site.title}`}
+  canonicalPath="/"
+  structuredData={{
+    '@type': 'Person',
+    name: site.author,
+    jobTitle: resumeData.basics?.label,
+    url: new URL('/', Astro.site).href,
+    image: new URL(site.portrait.src, Astro.site).href,
+    sameAs: Object.values(site.links),
+  }}
+>
+  <section class="intro" aria-labelledby="intro-title">
+    <div data-pagefind-body data-pagefind-meta="title:About Fethi Ozdol">
+      <p class="badge">{site.title}</p>
+      <h1 id="intro-title">{site.author}</h1>
+      <p class="lede">
+        {resumeData.basics?.label}
+        {location?.city && ` · ${location.city}`}
+      </p>
+      <div class="prose">
+        <Biography />
+      </div>
+      <div class="actions">
+        <a class="button button-primary" href="/cv/">
+          View experience
+        </a>
+        <a class="button" href={site.cvPdf}>
+          Download CV (PDF)
+        </a>
+        <a class="button" href="/blog/">
+          Read the writing
+        </a>
+      </div>
+      <ul class="contact-list" aria-label="Contact">
+        <li>
+          <a href={site.links.linkedin}>LinkedIn</a>
+        </li>
+        <li>
+          <a href={site.links.x}>X</a>
+        </li>
+        <li>
+          <a href={obfuscatedMailto()}>Email</a>
+        </li>
+        <li>
+          <a href={site.links.github}>GitHub</a>
+        </li>
+        <li>
+          <a href="/feed.xml">RSS</a>
+        </li>
+      </ul>
+      <p class="contact-note">{site.contactNote}</p>
+    </div>
+    <img
+      class="portrait"
+      src={site.portrait.src}
+      width={site.portrait.width}
+      height={site.portrait.height}
+      alt={`Portrait of ${site.author}`}
+      fetchpriority="high"
+    />
+  </section>
+
+  <section class="section" aria-labelledby="writing-title">
+    <div class="section-header">
+      <h2 id="writing-title">Writing</h2>
+      <a href="/blog/">All writing</a>
+    </div>
+    <PostList posts={posts} headingLevel="h3" />
+  </section>
+
+  <section class="section" aria-labelledby="news-title">
+    <div class="section-header">
+      <h2 id="news-title">Announcements</h2>
+      <a href="/news/">All announcements</a>
+    </div>
+    <ol class="news-list">
+      {news.map((entry) => (
+        <li class="news-item">
+          <p class="post-meta">
+            <time datetime={isoDate(entry.data.date)}>{formatDate(entry.data.date)}</time>
+          </p>
+          <h3 class="post-title">
+            <a href={entry.data.permalink}>{entry.data.title}</a>
+          </h3>
+        </li>
+      ))}
+    </ol>
+  </section>
+
+  <section class="section split" aria-label="More">
+    <div class="panel">
+      <h3>Experience</h3>
+      <p>Roles, projects, certificates and skills from my CV.</p>
+      <a href="/cv/">See experience</a>
+    </div>
+    <div class="panel">
+      <h3>Repositories</h3>
+      <p>Public code on GitHub.</p>
+      <a href="/repositories/">See repositories</a>
+    </div>
+  </section>
+</BaseLayout>

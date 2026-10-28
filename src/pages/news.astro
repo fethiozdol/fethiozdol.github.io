@@ -1,0 +1,27 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { formatDate, getPublishedNews, isoDate, renderEntry } from '../lib/content';
+
+const news = await Promise.all((await getPublishedNews()).map(async (entry) => ({ entry, Content: (await renderEntry(entry)).Content })));
+---
+
+<BaseLayout title="Announcements | This is My Pattern" description="Dated announcements from Fethi Ozdol." canonicalPath="/news/">
+  <header class="page-header">
+    <h1>Announcements</h1>
+  </header>
+  <ol class="news-list">
+    {news.map(({ entry, Content }) => (
+      <li class="news-item">
+        <p class="post-meta">
+          <time datetime={isoDate(entry.data.date)}>{formatDate(entry.data.date)}</time>
+        </p>
+        <h2 class="post-title">
+          <a href={entry.data.permalink}>{entry.data.title}</a>
+        </h2>
+        <div class="prose">
+          <Content />
+        </div>
+      </li>
+    ))}
+  </ol>
+</BaseLayout>

@@ -1,0 +1,84 @@
+---
+import { nav, site } from '../data/site';
+
+const current = Astro.url.pathname;
+const isCurrent = (href: string) => (href === '/' ? current === '/' : current.startsWith(href));
+---
+
+<header class="site-header">
+  <div class="container">
+    <a class="brand" href="/">
+      {site.author}
+      <span class="brand-slash" aria-hidden="true">
+        /
+      </span>
+      <span class="brand-sub">{site.title}</span>
+    </a>
+    <div class="header-actions">
+      <a class="icon-button" href="/search/" aria-label="Search" aria-current={isCurrent('/search/') ? 'page' : undefined}>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <circle cx="11" cy="11" r="7"></circle>
+          <path d="m20 20-3.5-3.5"></path>
+        </svg>
+      </a>
+      <button class="icon-button theme-toggle" type="button" aria-label="Switch colour theme" data-theme-toggle>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <path d="M12 3a9 9 0 1 0 9 9 7 7 0 0 1-9-9Z"></path>
+        </svg>
+      </button>
+      <a class="button button-primary" href={site.cvPdf}>
+        Download CV
+      </a>
+      <button class="icon-button menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav" data-menu-toggle>
+        <span class="visually-hidden">Menu</span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <path d="M4 7h16M4 12h16M4 17h16"></path>
+        </svg>
+      </button>
+    </div>
+    <nav class="site-nav" id="site-nav" aria-label="Main">
+      <ul>
+        {nav.map((item) => (
+          <li>
+            <a href={item.href} aria-current={isCurrent(item.href) ? 'page' : undefined}>
+              {item.label}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<script>
+  const root = document.documentElement;
+  const themeButton = document.querySelector<HTMLButtonElement>('[data-theme-toggle]');
+  const effectiveTheme = () => root.dataset.theme ?? (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+  const labelTheme = () => {
+    if (themeButton) themeButton.setAttribute('aria-label', `Switch to ${effectiveTheme() === 'dark' ? 'light' : 'dark'} theme`);
+  };
+  labelTheme();
+  matchMedia('(prefers-color-scheme: dark)').addEventListener('change', labelTheme);
+  themeButton?.addEventListener('click', () => {
+    const next = effectiveTheme() === 'dark' ? 'light' : 'dark';
+    root.dataset.theme = next;
+    try {
+      sessionStorage.setItem('theme', next);
+    } catch {}
+    labelTheme();
+  });
+
+  const menuButton = document.querySelector<HTMLButtonElement>('[data-menu-toggle]');
+  const menu = document.getElementById('site-nav');
+  const setMenu = (open: boolean) => {
+    menu?.classList.toggle('is-open', open);
+    menuButton?.setAttribute('aria-expanded', String(open));
+  };
+  menuButton?.addEventListener('click', () => setMenu(!menu?.classList.contains('is-open')));
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape' && menu?.classList.contains('is-open')) {
+      setMenu(false);
+      menuButton?.focus();
+    }
+  });
+</script>

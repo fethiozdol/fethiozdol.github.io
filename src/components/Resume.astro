@@ -1,0 +1,185 @@
+---
+// Renders assets/json/resume.json (jsoncv format) with the same field visibility as the old site.
+import { obfuscatedMailto } from '../data/site';
+import { byDateDesc, humanise, isEmpty, month, range, resumeData, resumeSections, type Entry } from '../lib/resume';
+
+const BASICS_LABELS: Record<string, string> = { label: 'Role', url: 'Website' };
+const basics = Object.entries(resumeData.basics ?? {}).filter(([key, value]) => key !== 'image' && !isEmpty(value));
+const list = (key: string) => (resumeData[key] ?? []) as Entry[];
+---
+
+{resumeSections.map(({ key, title }) => (
+  <section class="cv-section" aria-labelledby={key}>
+    <h2 id={key}>{title}</h2>
+
+    {key === 'basics' && (
+      <dl class="cv-facts">
+        {basics.map(([field, val]) =>
+          field === 'profiles' ? (
+            (val as Entry[]).map((profile) => (
+              <>
+                <dt>{profile.network}</dt>
+                <dd>
+                  <a href={profile.url}>{profile.url}</a>
+                </dd>
+              </>
+            ))
+          ) : (
+            <>
+              <dt>{BASICS_LABELS[field] ?? humanise(field)}</dt>
+              <dd>
+                {field === 'url' ? (
+                  <a href={val as string}>{val as string}</a>
+                ) : field === 'email' ? (
+                  <a href={obfuscatedMailto(val as string)}>Email</a>
+                ) : field === 'phone' ? (
+                  <a href={`tel:${val}`}>{val as string}</a>
+                ) : field === 'location' ? (
+                  [(val as Entry).city, (val as Entry).countryCode].filter(Boolean).join(', ')
+                ) : (
+                  String(val)
+                )}
+              </dd>
+            </>
+          ),
+        )}
+      </dl>
+    )}
+
+    {(key === 'work' || key === 'volunteer') && (
+      <ol class="cv-entries">
+        {[...list(key)].sort(byDateDesc('startDate')).map((job) => (
+          <li class="cv-entry">
+            <div>
+              <h3>{job.position}</h3>
+              <p class="cv-sub">{job.url ? <a href={job.url}>{job.name ?? job.organization}</a> : (job.name ?? job.organization)}</p>
+              {job.summary && <p>{job.summary}</p>}
+              {job.highlights?.length > 0 && (
+                <ul>
+                  {job.highlights.map((item: string) => (
+                    <li>{item}</li>
+                  ))}
+                </ul>
+              )}
+            </div>
+            <p class="cv-when">
+              {range(job.startDate, job.endDate) && <span>{range(job.startDate, job.endDate)}</span>}
+              {job.location && <span>{job.location}</span>}
+            </p>
+          </li>
+        ))}
+      </ol>
+    )}
+
+    {key === 'education' && (
+      <ol class="cv-entries">
+        {[...list(key)].sort(byDateDesc('startDate')).map((school) => (
+          <li class="cv-entry">
+            <div>
+              <h3>{school.url ? <a href={school.url}>{school.institution}</a> : school.institution}</h3>
+              <p class="cv-sub">{[school.studyType, school.area].filter(Boolean).join(', ')}</p>
+              {school.score && <p>{school.score}</p>}
+              {school.courses?.length > 0 && (
+                <ul>
+                  {school.courses.map((course: string) => (
+                    <li>{course}</li>
+                  ))}
+                </ul>
+              )}
+            </div>
+            <p class="cv-when">
+              {range(school.startDate, school.endDate) && <span>{range(school.startDate, school.endDate)}</span>}
+              {school.location && <span>{school.location}</span>}
+            </p>
+          </li>
+        ))}
+      </ol>
+    )}
+
+    {(key === 'projects' || key === 'sideProjects') && (
+      <ol class="cv-entries">
+        {list(key).map((project) => (
+          <li class="cv-entry">
+            <div>
+              <h3>{project.url ? <a href={project.url}>{project.name}</a> : project.name}</h3>
+              {project.description && <p>{project.description}</p>}
+              {project.highlights?.length > 0 && (
+                <ul>
+                  {project.highlights.map((item: string) => (
+                    <li>{item}</li>
+                  ))}
+                </ul>
+              )}
+              {project.keywords?.length > 0 && (
+                <ul class="keywords" aria-label="Technologies">
+                  {project.keywords.map((item: string) => (
+                    <li>{item}</li>
+                  ))}
+                </ul>
+              )}
+            </div>
+            <p class="cv-when">{range(project.startDate, project.endDate) && <span>{range(project.startDate, project.endDate)}</span>}</p>
+          </li>
+        ))}
+      </ol>
+    )}
+
+    {(key === 'awards' || key === 'publications') && (
+      <ol class="cv-entries">
+        {[...list(key)].sort(byDateDesc(key === 'awards' ? 'date' : 'releaseDate')).map((item) => (
+          <li class="cv-entry">
+            <div>
+              <h3>{item.url ? <a href={item.url}>{item.title ?? item.name}</a> : (item.title ?? item.name)}</h3>
+              <p class="cv-sub">{item.awarder ?? item.publisher}</p>
+              {item.summary && <p>{item.summary}</p>}
+            </div>
+            <p class="cv-when">
+              <span>{month(item.date ?? item.releaseDate)}</span>
+            </p>
+          </li>
+        ))}
+      </ol>
+    )}
+
+    {key === 'certificates' && (
+      <ul class="cv-cards">
+        {[...list(key)].sort(byDateDesc('date')).map((cert) => (
+          <li>
+            <h3>{cert.url ? <a href={cert.url}>{cert.name}</a> : cert.name}</h3>
+            <p class="cv-sub">{cert.issuer}</p>
+            <p class="cv-when">{month(cert.date)}</p>
+          </li>
+        ))}
+      </ul>
+    )}
+
+    {(key === 'skills' || key === 'interests') && (
+      <ul class="cv-cards">
+        {list(key).map((group) => (
+          <li>
+            <h3>{group.name}</h3>
+            {group.level && <p class="cv-sub">{group.level}</p>}
+            {group.keywords?.length > 0 && (
+              <ul class="keywords">
+                {group.keywords.map((item: string) => (
+                  <li>{item}</li>
+                ))}
+              </ul>
+            )}
+          </li>
+        ))}
+      </ul>
+    )}
+
+    {(key === 'languages' || key === 'references') && (
+      <ul class="cv-cards">
+        {list(key).map((item) => (
+          <li>
+            <h3>{item.language ?? item.name}</h3>
+            <p class="cv-sub">{item.fluency ?? item.reference}</p>
+          </li>
+        ))}
+      </ul>
+    )}
+  </section>
+))}

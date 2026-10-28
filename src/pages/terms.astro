@@ -1,0 +1,80 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PolicyHistory from '../components/PolicyHistory.astro';
+import history from '../../assets/json/vh_terms.json';
+import { obfuscatedMailto, site } from '../data/site';
+---
+
+<BaseLayout
+  title="Terms and Privacy Policy | This is My Pattern"
+  description="How thisismypattern.com handles personal information."
+  canonicalPath="/terms/"
+>
+  <article class="article prose" data-pagefind-body>
+    <header class="page-header">
+      <p class="eyebrow">Policies</p>
+      <h1>Terms and Privacy Policy</h1>
+      <p class="lede">
+        thisismypattern.com is a non-profit personal website for an individual to share knowledge with the wider community. It will not get any
+        commercial value from any content produced or any personal information collected.
+      </p>
+    </header>
+
+    <h2>1. What this website collects</h2>
+    <p>
+      This website does not use analytics, advertising or tracking, and its own pages and scripts do not set cookies. It has no accounts, forms or
+      comment system of its own.
+    </p>
+
+    <h2>2. Hosting</h2>
+    <p>
+      The website is a set of static files hosted on <a href="https://pages.github.com/">GitHub Pages</a>. When you visit, your browser sends ordinary
+      requests, including your IP address, browser details and the page requested, to GitHub's servers. GitHub processes this information to deliver
+      and secure the service under the
+      <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement">GitHub General Privacy Statement</a>. This
+      website has no server-side code or logging of its own.
+    </p>
+
+    <h2>3. Storage on your device</h2>
+    <p>
+      If you use the light/dark appearance switch, your choice is kept in your browser's session storage under the key
+      <code>theme</code> so that it applies to the other pages you open. It is removed when you close the tab. See the
+      <a href="/cookies/">Cookie Policy</a> for details.
+    </p>
+
+    <h2>4. Comments and other websites</h2>
+    <p>
+      Article comments are hosted on GitHub Discussions. Nothing from GitHub loads on this website's pages; following the link takes you to
+      github.com, where GitHub's terms and privacy statement apply.
+    </p>
+    <p>
+      This privacy statement does not apply to third-party websites connected by links on my website, such as LinkedIn, X and GitHub. I cannot
+      guarantee that these third parties handle your personal data in a reliable or secure manner. I recommend you read the privacy statements of
+      these websites prior to making use of these websites.
+    </p>
+
+    <h2>5. Email and disclosure practices</h2>
+    <p>
+      If you contact me by email, I use your email address and message only to reply to you. Your email address or any other personal information will
+      never be shared by anyone or any party without your direct consent, unless I am required to disclose it by law or by a court order, in response
+      to a law enforcement agency, or for an investigation on a matter related to public safety.
+    </p>
+
+    <h2>6. Security</h2>
+    <p>
+      I am committed to the security of personal data. I take appropriate security measures to limit abuse of and unauthorised access to personal
+      data.
+    </p>
+
+    <h2>7. Your rights</h2>
+    <p>
+      If you have any questions or want to know which personal data I have about you, please
+      <a href={obfuscatedMailto()}>contact me by email</a> or via <a href={site.links.linkedin}>LinkedIn</a>.
+    </p>
+
+    <h2>8. Amendments to this privacy policy</h2>
+    <p>I reserve the right to make amendments to this privacy statement. Amendments can be tracked by the version history table below.</p>
+
+    <PolicyHistory entries={history} source="/assets/json/vh_terms.json" />
+  </article>
+</BaseLayout>
