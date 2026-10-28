@@ -80,7 +80,7 @@ If you add anything that loads from another website (analytics, embeds, fonts) o
 
 `.github/workflows/deploy.yml` runs on every pull request and every push to `main`. It installs dependencies, runs `npm run check`, builds, runs the tests and `scripts/check-site.mjs`. Pull requests stop there. On `main`, the checked `dist/` folder is published with GitHub Pages from the workflow. The custom domain is set in the repository Pages settings; `public/CNAME` records it.
 
-The **Axe accessibility testing** workflow can be run manually from the Actions tab against the built site.
+The **Axe accessibility testing** workflow can be run manually from the Actions tab against the built site. Dependabot watches npm and GitHub Actions weekly.
 
 ## Project layout
 
