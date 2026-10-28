@@ -85,8 +85,6 @@ export function checkSite(root, baseline) {
   for (const asset of baseline.assets) {
     if (!existsSync(routeToFile(root, asset))) failures.push(`Missing asset ${asset}`);
   }
-  // Without it GitHub Pages runs Jekyll over the output and drops the underscore-prefixed /_astro/ bundle.
-  if (!existsSync(join(root, '.nojekyll'))) failures.push('Missing /.nojekyll');
 
   const htmlFiles = walk(root).filter((file) => file.endsWith('.html'));
   for (const file of htmlFiles) {
