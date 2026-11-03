@@ -22,7 +22,7 @@
     "typescript": "^6.0.3"
   },
   "dependencies": {
-    "astro": "^7.4.2",
+    "astro": "^7.4.4",
     "mermaid": "^12.2.0"
   }
 }
